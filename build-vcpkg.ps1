@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
 
 function Invoke-VcpkgBuild($pkg) {
-	.\vcpkg.exe install $pkg`:x64-windows-mixed
+	.\vcpkg.exe install $pkg`:x64-windows-mixed --vcpkg-root .
 	if ($LastExitCode -ne 0) { throw }
 }
 
@@ -35,5 +35,5 @@ Invoke-VcpkgBuild "gtest"
 
 # export created libraries and set version
 .\vcpkg.exe export --x-all-installed --raw
-Move-Item -Path .\vcpkg-export-* -Destination .\vcpkg
+Move-Item -Path .\vcpkg-export-* -Destination .\vcpkg --vcpkg-root .
 Write-Output 16 > vcpkg\installed\version.txt
