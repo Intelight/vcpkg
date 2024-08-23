@@ -11,6 +11,7 @@ if (!(Test-Path vcpkg.exe)) {
 }
 
 Invoke-VcpkgBuild "zlib"
+Invoke-VcpkgBuild "libzip[core,default-aes,openssl,wincrypto]"
 Invoke-VcpkgBuild "sqlite3"
 Invoke-VcpkgBuild "boost-circular-buffer"
 Invoke-VcpkgBuild "boost-random"
@@ -33,6 +34,7 @@ Invoke-VcpkgBuild "websocketpp"
 Invoke-VcpkgBuild "curl"
 Invoke-VcpkgBuild "cryptlex"
 Invoke-VcpkgBuild "gtest"
+
 
 # export created libraries and set version
 .\vcpkg.exe export --x-all-installed --raw --vcpkg-root .

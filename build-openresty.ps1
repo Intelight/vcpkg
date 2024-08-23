@@ -69,28 +69,20 @@ git apply --verbose 0001-fix-link-with-vcpkg-static-openssl.patch
 ..\..\luarocks.bat make "CRYPTO_DIR=$vcpkg" "OPENSSL_DIR=$vcpkg"
 cd ..\..
 
-
-# zipwriter depends on struct, bit32, lua-zlib, luaossl
 .\luarocks.bat install lua-zlib 1.2-2 "ZLIB_DIR=$vcpkg\lib" "ZLIB_INCDIR=$vcpkg\include"
 .\luarocks.bat install bit32 5.3.5.1-1
 .\luarocks.bat install struct 1.4-1
+.\luarocks.bat install aesfileencrypt 0.1.3-1
 .\luarocks.bat install zipwriter 0.1.5-1
 
-
-.\luarocks.bat install fly-bgcrypto-sha 0.0.1-1
-.\luarocks.bat install fly-bgcrypto-pbkdf2 0.0.1-1
-.\luarocks.bat install lua-easy-crypto 1.0.0-1 # uses luossl to easily encrypt/decrypt files. not installing because need exactly luaossl 20171028-0
-
-
-# .\luarocks.bat unpack zipwriter 0.1.5-1
-# cd zipwriter-0.1.5-1
-# cp "$patches\zipwriter\*" .\
-# git init .
-# git apply --verbose 0001-replace-luacrypto-with-luaossl.patch
-# cd zipwriter
-# ..\..\luarocks.bat make
-# cd ..\..
-
+.\luarocks.bat unpack lua-zip 0.2-0
+cd lua-zip-0.2-0
+cp "$patches\lua-zip\*" .\
+git init .
+git apply --verbose 0001-fix-deps.patch
+cd lua-zip
+..\..\luarocks.bat make "lua-zip-0.2-0.rockspec" "ZIP_DIR=$vcpkg"
+cd ..\..
 
 .\luarocks.bat unpack phpass 1.0-1
 cd phpass-1.0-1
