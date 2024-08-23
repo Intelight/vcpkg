@@ -102,7 +102,6 @@ cd luajwt
 ..\..\luarocks.bat make
 cd ..\..
 
-
 # Copy openresty and lua into installed dir
 cd ..\..\..
 tar xf .\openresty\zips\openresty-1.25.3.1-win64.zip --strip-components=1 -C "$openresty"
