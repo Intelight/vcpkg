@@ -79,7 +79,7 @@ cd ..\..
 cd lua-zip-0.2-0
 cp "$patches\lua-zip\*" .\
 git init .
-git apply --verbose 0001-fix-deps.patch
+git apply --verbose 0001-add-encrypted-file-open.patch
 cd lua-zip
 ..\..\luarocks.bat make "lua-zip-0.2-0.rockspec" "ZIP_DIR=$vcpkg"
 cd ..\..
