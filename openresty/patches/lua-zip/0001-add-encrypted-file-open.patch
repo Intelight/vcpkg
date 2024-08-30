@@ -1,26 +1,18 @@
-From 0d5ab9c723baba3a18a3af58720aabee6aabf81f Mon Sep 17 00:00:00 2001
+From 6fefe78f9af12bd0c34830cb19f3263562d10d75 Mon Sep 17 00:00:00 2001
 From: thomas-creel <137831176+thomas-creel@users.noreply.github.com>
-Date: Wed, 28 Aug 2024 23:40:01 -0400
-Subject: [PATCH] add encrypted file open
+Date: Thu, 29 Aug 2024 23:49:47 -0400
+Subject: [PATCH] add-encrypted-file-open
 
 ---
- lua-zip/lua-zip-0.2-0.rockspec | 21 +++++++++++++++-
+ lua-zip/lua-zip-0.2-0.rockspec | 27 ++++++++++++++++++++
  lua-zip/lua_zip.c              | 45 ++++++++++++++++++++++++++++++++++
- 2 files changed, 65 insertions(+), 1 deletion(-)
+ 2 files changed, 72 insertions(+)
 
 diff --git a/lua-zip/lua-zip-0.2-0.rockspec b/lua-zip/lua-zip-0.2-0.rockspec
-index 0f45def..875b713 100644
+index 0f45def..984e186 100644
 --- a/lua-zip/lua-zip-0.2-0.rockspec
 +++ b/lua-zip/lua-zip-0.2-0.rockspec
-@@ -33,11 +33,30 @@ build = {
-             "$(ZIP_LIBDIR)"
-          },
-          libraries = {
--            "zip"
-+            "zip",
-+            "zlib"
-          },
-          sources = {
+@@ -39,5 +39,32 @@ build = {
              "lua_zip.c"
           }
        }
@@ -36,6 +28,15 @@ index 0f45def..875b713 100644
 +                  "kernel32",
 +                  "user32"
 +               },
++               defines = {
++                  "ZIP_STATIC"
++               }
++            }
++         }
++      },
++      linux = {
++         modules = {
++            ["brimworks.zip"] = {
 +               defines = {
 +                  "ZIP_STATIC"
 +               }

@@ -69,12 +69,6 @@ git apply --verbose 0001-fix-link-with-vcpkg-static-openssl.patch
 ..\..\luarocks.bat make "CRYPTO_DIR=$vcpkg" "OPENSSL_DIR=$vcpkg"
 cd ..\..
 
-.\luarocks.bat install lua-zlib 1.2-2 "ZLIB_DIR=$vcpkg\lib" "ZLIB_INCDIR=$vcpkg\include"
-.\luarocks.bat install bit32 5.3.5.1-1
-.\luarocks.bat install struct 1.4-1
-.\luarocks.bat install aesfileencrypt 0.1.3-1
-.\luarocks.bat install zipwriter 0.1.5-1
-
 .\luarocks.bat unpack lua-zip 0.2-0
 cd lua-zip-0.2-0
 cp "$patches\lua-zip\*" .\
