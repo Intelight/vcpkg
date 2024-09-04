@@ -68,6 +68,15 @@ git apply --verbose 0001-fix-link-with-vcpkg-static-openssl.patch
 ..\..\luarocks.bat make "CRYPTO_DIR=$vcpkg" "OPENSSL_DIR=$vcpkg"
 cd ..\..
 
+.\luarocks.bat unpack lua-zip 0.2-0
+cd lua-zip-0.2-0
+cp "$patches\lua-zip\*" .\
+git init .
+git apply --verbose 0001-add-encrypted-file-open.patch
+cd lua-zip
+..\..\luarocks.bat make "lua-zip-0.2-0.rockspec" "ZIP_DIR=$vcpkg"
+cd ..\..
+
 .\luarocks.bat unpack phpass 1.0-1
 cd phpass-1.0-1
 cp "$patches\phpass\*" .\
