@@ -39,4 +39,4 @@ Invoke-VcpkgBuild "gtest"
 # export created libraries and set version
 .\vcpkg.exe export --x-all-installed --raw --vcpkg-root .
 Move-Item -Path .\vcpkg-export-* -Destination .\vcpkg
-Write-Output 20 > vcpkg\installed\version.txt
+Write-Output 21 > vcpkg\installed\version.txt
