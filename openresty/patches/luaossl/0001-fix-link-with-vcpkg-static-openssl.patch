@@ -1,16 +1,16 @@
-From 6e20b2e953c9afed84b628fa41b7457ff49a758c Mon Sep 17 00:00:00 2001
-From: Doug Crawford <doug.crawford@intelight-its.com>
-Date: Mon, 8 Jun 2020 21:41:06 -0700
-Subject: [PATCH] fix link with vcpkg static openssl
+From 5ca3d568229e5f6bce4e3d2a7a22c38f7c83bbcd Mon Sep 17 00:00:00 2001
+From: Doug Crawford <doug.crawford@q-free.com>
+Date: Mon, 17 Nov 2025 10:22:04 -0700
+Subject: [PATCH] pt
 
 ---
- luaossl-20190731-0.rockspec | 10 ++++++----
+ luaossl-20250929-0.rockspec | 10 ++++++----
  1 file changed, 6 insertions(+), 4 deletions(-)
 
-diff --git a/luaossl-20190731-0.rockspec b/luaossl-20190731-0.rockspec
-index 2acbddb..99ac076 100644
---- a/luaossl-20190731-0.rockspec
-+++ b/luaossl-20190731-0.rockspec
+diff --git a/luaossl-20250929-0.rockspec b/luaossl-20250929-0.rockspec
+index 79264a0..9ea37ec 100644
+--- a/luaossl-20250929-0.rockspec
++++ b/luaossl-20250929-0.rockspec
 @@ -29,10 +29,10 @@ external_dependencies = {
  	platforms = {
  		windows = {
@@ -39,5 +39,5 @@ index 2acbddb..99ac076 100644
  						"kernel32";
  					};
 -- 
-2.26.0.windows.1
+2.49.0.windows.1
 
