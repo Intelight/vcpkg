@@ -38,29 +38,29 @@ cd buildtrees\openresty\luarocks
   /P "$lualocal" `
   /INC "$vcpkg\include\luajit" `
   /LIB "$vcpkg\lib" `
-  /BIN "$vcpkg\tools"
+  /BIN "$vcpkg\tools\luajit"
 cd ..\..\..
 
 # Build lua modules
 cd buildtrees\openresty\lualocal
-.\luarocks.bat install lua-cjson 2.1.0.6-1
+.\luarocks.bat install lua-cjson 2.1.0.10-1
 .\luarocks.bat install lbase64 20120820-1
 .\luarocks.bat install inspect 3.1.1-0
 .\luarocks.bat install valua 0.3-1
 .\luarocks.bat install router 2.1-0
-.\luarocks.bat install lua-path 0.3.1-1
+.\luarocks.bat install lua-path 0.3.1-2
 # moses must be pinned at 1.6.1-1, recent versions switch the order of arguments and completely break maxprofile
 .\luarocks.bat install moses 1.6.1-1
 .\luarocks.bat install uuid 0.2-1
-.\luarocks.bat install lua-resty-openssl 0.8.26-1
+.\luarocks.bat install lua-resty-openssl 1.7.0-1
 .\luarocks.bat install lua-resty-jwt 0.2.3-0
-.\luarocks.bat install lua-resty-http 0.15-0
+.\luarocks.bat install lua-resty-http 0.17.1-0
 .\luarocks.bat install luafilesystem 1.8.0-1
 .\luarocks.bat install lsqlite3 0.9.5-1 "SQLITE_INCDIR=$vcpkg\include" "SQLITE_LIBDIR=$vcpkg\lib"
 .\luarocks.bat install luasql-sqlite3 2.5.0-1 "SQLITE_INCDIR=$vcpkg\include" "SQLITE_LIBDIR=$vcpkg\lib"
 
-.\luarocks.bat unpack luaossl 20190731-0
-cd luaossl-20190731-0\luaossl-rel-20190731
+.\luarocks.bat unpack luaossl 20250929-0
+cd luaossl-20250929-0\luaossl-rel-20250929
 cp "$patches\luaossl\*" .\
 git init .
 git apply --verbose 0001-fix-link-with-vcpkg-static-openssl.patch
