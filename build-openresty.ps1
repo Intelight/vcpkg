@@ -44,7 +44,7 @@ cd ..\..\..
 # Build lua modules
 cd buildtrees\openresty\lualocal
 .\luarocks.bat install lua-cjson 2.1.0.10-1
-.\luarocks.bat install lbase64 20120820-1
+.\luarocks.bat install lbase64 20120820-1 "CFLAGS=-DLUA_LIB"
 .\luarocks.bat install inspect 3.1.1-0
 .\luarocks.bat install valua 0.3-1
 .\luarocks.bat install router 2.1-0
@@ -74,7 +74,7 @@ cp "$patches\lua-zip\*" .\
 git init .
 git apply --verbose 0001-add-encrypted-file-open.patch
 cd lua-zip
-..\..\luarocks.bat make "lua-zip-0.2-0.rockspec" "ZIP_DIR=$vcpkg"
+..\..\luarocks.bat make "lua-zip-0.2-0.rockspec" "ZIP_DIR=$vcpkg" "CFLAGS=-DLUA_LIB"
 cd ..\..
 
 .\luarocks.bat unpack phpass 1.0-1
