@@ -32,7 +32,7 @@ if(Test-Path "$redis") {
 New-Item "$redis" -type directory -force 2>&1 | out-null
 
 # Build luarocks
-tar xf .\openresty\zips\luarocks-3.12.2-win32.zip --strip-components=1 -C .\buildtrees\openresty\luarocks\
+tar xf .\openresty\zips\luarocks-3.13.0-win32.zip --strip-components=1 -C .\buildtrees\openresty\luarocks\
 cd buildtrees\openresty\luarocks
 .\install.bat /SELFCONTAINED /NOREG /NOADMIN /MSVC /Q /F `
   /P "$lualocal" `
