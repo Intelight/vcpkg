@@ -59,6 +59,9 @@ cd buildtrees\openresty\lualocal
 .\luarocks.bat install lsqlite3 0.9.5-1 "SQLITE_INCDIR=$vcpkg\include" "SQLITE_LIBDIR=$vcpkg\lib"
 .\luarocks.bat install luasql-sqlite3 2.5.0-1 "SQLITE_INCDIR=$vcpkg\include" "SQLITE_LIBDIR=$vcpkg\lib"
 .\luarocks.bat install luaxxhash 1.0.0-1
+.\luarocks.bat install tableshape 2.7.0-1
+.\luarocks.bat install lpeg 1.1.0-2
+.\luarocks.bat install web_sanitize 1.7.0-1
 
 .\luarocks.bat unpack luaossl 20250929-0
 cd luaossl-20250929-0\luaossl-rel-20250929
